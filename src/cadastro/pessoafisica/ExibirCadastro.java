@@ -3,7 +3,6 @@ package cadastro.pessoafisica;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -68,7 +67,7 @@ public class ExibirCadastro extends JFrame{
 		lSexo.setText(sexo);					
 		
 		this.setLocation(300, 300);
-		this.setTitle("Casdastro: " + nome);
+		this.setTitle("Cadastro: " + nome);
 		this.setLayout(null);
 		this.setSize(500, 300);
 		this.setVisible(true);
