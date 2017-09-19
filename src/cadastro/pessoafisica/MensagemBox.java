@@ -28,10 +28,10 @@ public class MensagemBox extends JFrame{
 		
 		label.setText(Mensagem);
 		paine.add(label);
-		label.setBounds(10, 10, 300, 30);
+		label.setBounds(10, 10, 610, 30);
 		
 		paine.add(btnOk);
-		btnOk.setBounds(300, 50, 80, 30);
+		btnOk.setBounds(260, 50, 80, 30);
 		btnOk.addActionListener(new ActionListener() {
 			
 			@Override
@@ -44,7 +44,7 @@ public class MensagemBox extends JFrame{
 		this.setLocation(300, 300);
 		this.setTitle(Titulo);
 		this.setLayout(null);
-		this.setSize(400, 200);
+		this.setSize(620, 130);
 		this.setVisible(true);
 	}
 	
