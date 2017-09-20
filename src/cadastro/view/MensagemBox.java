@@ -1,4 +1,4 @@
-package cadastro.pessoafisica;
+package cadastro.view;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package cadastro.pessoafisica;
+package cadastro.view;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -7,19 +7,21 @@ import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 public class TelaCadastro extends JFrame{
 	
 	JLabel Lname = new JLabel("Nome");
 	static JTextField TxtNome = new JTextField(); 
 	JLabel LCPF = new JLabel("CPF");
-	static JTextField TxtCPF = new JTextField(); 
+	static JFormattedTextField TxtCPF = null; 
 	JLabel LRG = new JLabel("RG");
-	static JTextField TxtRG = new JTextField(); 
+	static JFormattedTextField TxtRG = null; 
 	JLabel LSexo = new JLabel("Sexo");
 	/*static String[] Sexos = {"Masculino", "Feminino", "--Selecione--"};
 	static JComboBox CBoxSexo = new JComboBox(Sexos);*/	
@@ -30,11 +32,11 @@ public class TelaCadastro extends JFrame{
 	static String[] Est = {"AC", "SP", "----------"};
 	static JComboBox CBoxEstado = new JComboBox(Est);
 	JLabel LCep = new JLabel("CEP");
-	static JTextField TxtCep = new JTextField();
+	static JFormattedTextField TxtCep = null;
 	JLabel LTel = new JLabel("Telefone");
-	static JTextField TxtTelefone = new JTextField();
+	static JFormattedTextField TxtTelefone = null;
 	JLabel LCel = new JLabel("Celular");
-	static JTextField TxtCelular = new JTextField();
+	static JFormattedTextField TxtCelular = null;
 	JLabel LBairro = new JLabel("Bairro"); 
 	static JTextField TxtBairro = new JTextField();
 	ExibirCadastro EC = new ExibirCadastro();		
@@ -42,6 +44,13 @@ public class TelaCadastro extends JFrame{
 	static ButtonGroup btnGrupo = new ButtonGroup();
 	JLabel LCidade = new JLabel("Cidade");
 	static JTextField TxtCidade = new JTextField();
+	
+	MaskFormatter formatcpf = null;
+	MaskFormatter formatrg = null;
+	MaskFormatter formatcep = null;
+	MaskFormatter formatTelefone = null;
+	MaskFormatter formatCelular = null;
+	
 	public static void main(String args[]){
 		
 		TelaCadastro t = new TelaCadastro();		
@@ -60,8 +69,22 @@ public class TelaCadastro extends JFrame{
 		paine.add(LCPF);
 		LCPF.setBounds(610, 60, 22, 50);
 		
+		try{
+			formatcpf = new MaskFormatter("###.###.###-##");
+			TxtCPF = new JFormattedTextField(formatcpf);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 		paine.add(TxtCPF);
 		TxtCPF.setBounds(642, 70, 90, 30);
+		
+		try{
+			formatrg = new MaskFormatter("##.###.###-A");
+			TxtRG = new JFormattedTextField(formatrg);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		
 		paine.add(LRG);
 		LRG.setBounds(752, 60, 16, 50);
@@ -98,6 +121,13 @@ public class TelaCadastro extends JFrame{
 		paine.add(TxtBairro);
 		TxtBairro.setBounds(754, 130, 100, 30);
 		
+		try{
+			formatcep= new MaskFormatter("#####-###");
+			TxtCep = new JFormattedTextField(formatcep);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 		paine.add(LCep);		
 		LCep.setBounds(30, 190, 40, 30);
 				
@@ -120,12 +150,24 @@ public class TelaCadastro extends JFrame{
 		paine.add(LTel);
 		LTel.setBounds(550, 190, 50, 30);
 		
+		try{
+			formatTelefone = new MaskFormatter("(##)####-####");
+			TxtTelefone = new JFormattedTextField(formatTelefone);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		paine.add(TxtTelefone);
 		TxtTelefone.setBounds(610, 190, 89, 30);
 		
 		paine.add(LCel);
 		LCel.setBounds(709, 190, 40, 30);
 		
+		try{
+			formatCelular = new MaskFormatter("(##)#####-####");
+			TxtCelular = new JFormattedTextField(formatCelular);
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 		paine.add(TxtCelular);
 		TxtCelular.setBounds(761, 190, 93, 30);
 		
