@@ -25,7 +25,8 @@ public class TelaCadastro extends JFrame{
 	JLabel LSexo = new JLabel("Sexo");
 	/*static String[] Sexos = {"Masculino", "Feminino", "--Selecione--"};
 	static JComboBox CBoxSexo = new JComboBox(Sexos);*/	
-	static JButton btnCadastrar = new JButton("Cadastrar");
+	static JButton btnImprimir = new JButton("Imprimir");
+	static JButton btnSalvar = new JButton("Salvar");
 	JLabel LEnd = new JLabel("Endereço");
 	static JTextField TxtEndereco = new JTextField();
 	JLabel LEst = new JLabel("Estado");	
@@ -44,6 +45,7 @@ public class TelaCadastro extends JFrame{
 	static ButtonGroup btnGrupo = new ButtonGroup();
 	JLabel LCidade = new JLabel("Cidade");
 	static JTextField TxtCidade = new JTextField();
+	
 	
 	MaskFormatter formatcpf = null;
 	MaskFormatter formatrg = null;
@@ -171,9 +173,9 @@ public class TelaCadastro extends JFrame{
 		paine.add(TxtCelular);
 		TxtCelular.setBounds(761, 190, 93, 30);
 		
-		paine.add(btnCadastrar);
-		btnCadastrar.setBounds(752, 250, 100, 30);	
-		btnCadastrar.addActionListener(new ActionListener() {
+		paine.add(btnImprimir);
+		btnImprimir.setBounds(755, 250, 100, 30);	
+		btnImprimir.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -194,6 +196,9 @@ public class TelaCadastro extends JFrame{
 			}
 		});
 		
+		paine.add(btnSalvar);
+		btnSalvar.setBounds(645, 250, 100, 30);
+		
 		paine.setLayout(null);
 		this.setSize(900, 860);
 		this.setVisible(true);
@@ -206,7 +211,7 @@ public class TelaCadastro extends JFrame{
 			TxtCPF.setEditable(true);
 			TxtRG.setEditable(true);
 			/*CBoxSexo.setEnabled(true);*/
-			btnCadastrar.setEnabled(true);
+			btnImprimir.setEnabled(true);
 			
 			RbtnSexo[0].setEnabled(true);
 			RbtnSexo[1].setEnabled(true);
@@ -223,7 +228,7 @@ public class TelaCadastro extends JFrame{
 			TxtCPF.setEditable(false);
 			TxtRG.setEditable(false);
 			/*CBoxSexo.setEnabled(false);*/
-			btnCadastrar.setEnabled(false);
+			btnImprimir.setEnabled(false);
 			
 			RbtnSexo[0].setEnabled(false);
 			RbtnSexo[1].setEnabled(false);
@@ -246,7 +251,7 @@ public class TelaCadastro extends JFrame{
 			
 			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
-		}else if(TxtCPF.getText().isEmpty()) {
+		}else if(TxtCPF.getText().equals("   .   .   -  ")) {
 			
 			MsgDeErro = MsgDeErro + "CPF";
 			if(TxtNome.getText().isEmpty()) {MsgDeErro = MsgDeErro + "Nome";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
