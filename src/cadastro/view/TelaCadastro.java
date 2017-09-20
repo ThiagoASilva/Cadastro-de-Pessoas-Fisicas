@@ -45,7 +45,9 @@ public class TelaCadastro extends JFrame{
 	static ButtonGroup btnGrupo = new ButtonGroup();
 	JLabel LCidade = new JLabel("Cidade");
 	static JTextField TxtCidade = new JTextField();
+	static JButton btnLimpar = new JButton("Limpar tudo");
 	
+	cadastro.model.PessoaFisica PessoaFisica = new cadastro.model.PessoaFisica();
 	
 	MaskFormatter formatcpf = null;
 	MaskFormatter formatrg = null;
@@ -199,6 +201,34 @@ public class TelaCadastro extends JFrame{
 		paine.add(btnSalvar);
 		btnSalvar.setBounds(645, 250, 100, 30);
 		
+		btnSalvar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				PessoaFisica.setNome(TxtNome.getText());
+				PessoaFisica.setCPF(TxtCPF.getText());
+				PessoaFisica.setRG(TxtRG.getText());
+				PessoaFisica.setEndereco(TxtEndereco.getText());
+				PessoaFisica.setBairro(TxtBairro.getText());
+				PessoaFisica.setCidade(TxtCidade.getText());
+				PessoaFisica.setCEP(TxtCep.getText());
+				PessoaFisica.setTelefone(TxtTelefone.getText());
+				PessoaFisica.setCelular(TxtCelular.getText());				
+			}
+		});
+		
+		paine.add(btnLimpar);
+		btnLimpar.setBounds(30, 250, 200, 30);
+		btnLimpar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				limparCampos();
+				
+			}
+		});
+		
 		paine.setLayout(null);
 		this.setSize(900, 860);
 		this.setVisible(true);
@@ -249,7 +279,7 @@ public class TelaCadastro extends JFrame{
 		if(TxtNome.getText().isEmpty()) {
 			MsgDeErro = MsgDeErro + "Nome";		
 			
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtCPF.getText().equals("   .   .   -  ")) {
 			
@@ -259,48 +289,48 @@ public class TelaCadastro extends JFrame{
 		}else if(TxtRG.getText().isEmpty()) {
 			
 			MsgDeErro = MsgDeErro + "RG";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 						
 		}else if(!RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true) {
 			
 			MsgDeErro = MsgDeErro + "Sexo";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtEndereco.getText().isEmpty()){
 				
 				MsgDeErro = MsgDeErro + "Endereço";
-				if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+				if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 				
 		}else if(TxtBairro.getText().isEmpty()){
 			
 			MsgDeErro = MsgDeErro + "Bairro";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtCep.getText().isEmpty()){
 			
 			MsgDeErro = MsgDeErro + "CEP";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(CBoxEstado.getSelectedItem().toString().equals("----------")){
 			
 			MsgDeErro = MsgDeErro + "Estado";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtCidade.getText().isEmpty()){
 			
 			MsgDeErro = MsgDeErro + "Cidade";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtTelefone.getText().isEmpty()){
 			
 			MsgDeErro = MsgDeErro + "Telefone";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtCelular.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Celular";}
 			
 		}else if(TxtCelular.getText().isEmpty()){
 			
 			MsgDeErro = MsgDeErro + "Celular";
-			if(TxtCPF.getText().isEmpty()) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}
+			if(TxtCPF.getText().equals("   .   .   -  ")) {MsgDeErro = MsgDeErro + ", CPF";}if(TxtRG.getText().isEmpty()){MsgDeErro = MsgDeErro + ", RG";}if(RbtnSexo[0].isSelected() == true || RbtnSexo[1].isSelected() == true){}else{MsgDeErro = MsgDeErro + ", Sexo";}if(TxtEndereco.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Endereço";}if(TxtBairro.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Bairro";}if(TxtCep.getText().isEmpty()){MsgDeErro = MsgDeErro + ", CEP";}if(CBoxEstado.getSelectedItem().toString().equals("----------")){MsgDeErro = MsgDeErro + ", Estado";}if(TxtCidade.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Cidade";}if(TxtTelefone.getText().isEmpty()){MsgDeErro = MsgDeErro + ", Telefone";}
 			
 		}else {
 			ok = true;
@@ -313,6 +343,19 @@ public class TelaCadastro extends JFrame{
 		}
 				
 		return ok;
+	}
+	
+	public void limparCampos(){
+		TxtNome.setText("");
+		TxtCPF.setText("");
+		TxtRG.setText("");
+		TxtEndereco.setText("");
+		TxtBairro.setText("");
+		TxtCep.setText("");
+		TxtCidade.setText("");
+		TxtTelefone.setText("");
+		TxtCelular.setText("");
+		
 	}
 	
 
