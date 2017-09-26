@@ -65,7 +65,7 @@ public class ExibirCadastro extends JFrame{
 		paine.add(lcep);
 		lcep.setBounds(30, 270, 50, 30);
 		paine.add(lt);
-		lt.setBounds(30, 380, 80, 30);
+		lt.setBounds(30, 360, 80, 30);
 		paine.add(lcl);
 		lcl.setBounds(30, 330, 50, 30);
 		
@@ -86,11 +86,11 @@ public class ExibirCadastro extends JFrame{
 		paine.add(lEstado);
 		lEstado.setBounds(80, 300, 50, 30);
 		paine.add(lCEP);
-		lCEP.setBounds(70, 270, 50, 30);
+		lCEP.setBounds(70, 270, 80, 30);
 		paine.add(lTelefone);
-		lTelefone.setBounds(100, 380, 50, 30);
+		lTelefone.setBounds(100, 360, 110, 30);
 		paine.add(lCelular);
-		lCelular.setBounds(80, 330, 50, 30);
+		lCelular.setBounds(80, 330, 110, 30);
 		
 		paine.add(btnFechar);
 		btnFechar.setBounds(350, 140, 80, 30);

@@ -30,7 +30,7 @@ public class TelaCadastro extends JFrame{
 	JLabel LEnd = new JLabel("Endereço");
 	static JTextField TxtEndereco = new JTextField();
 	JLabel LEst = new JLabel("Estado");	
-	static String[] Est = {"AC", "SP", "----------"};
+	static String[] Est = { "----------", "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"};
 	static JComboBox CBoxEstado = new JComboBox(Est);
 	JLabel LCep = new JLabel("CEP");
 	static JFormattedTextField TxtCep = null;
@@ -141,7 +141,7 @@ public class TelaCadastro extends JFrame{
 		paine.add(LEst);
 		LEst.setBounds(160, 190, 40, 30);
 		
-		CBoxEstado.setSelectedIndex(2);
+		CBoxEstado.setSelectedIndex(0);
 		paine.add(CBoxEstado);			
 		CBoxEstado.setBounds(210, 190, 70, 30);
 		
@@ -355,6 +355,9 @@ public class TelaCadastro extends JFrame{
 		TxtCidade.setText("");
 		TxtTelefone.setText("");
 		TxtCelular.setText("");
+		btnGrupo.clearSelection();
+		CBoxEstado.setSelectedIndex(0);		
+		
 		
 	}
 	
